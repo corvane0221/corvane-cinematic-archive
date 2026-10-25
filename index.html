@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080a10">
+  <meta name="description" content="CORVANE — a personal archive of vintage silhouettes, film photography, and the things that stay after midnight.">
+  <title>CORVANE — Cinematic Archive</title>
+  <style>
+    :root{--bg:#080a10;--panel:#101522;--ink:#e9e7e4;--muted:#a3a6b3;--blue:#93a6d2;--line:#ffffff20;--serif:Georgia,"Times New Roman",serif;--sans:Arial,Helvetica,sans-serif}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:76px}body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--serif)}a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}img{display:block;max-width:100%}.mono{font:9px var(--sans);letter-spacing:.16em;text-transform:uppercase}.muted{color:var(--muted)}
+    .nav{height:64px;padding:0 clamp(18px,5vw,72px);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);position:sticky;top:0;background:#080a10eF;backdrop-filter:blur(12px);z-index:10}.brand{letter-spacing:.22em;font:11px var(--sans)}.navlinks{display:flex;gap:clamp(10px,2.5vw,28px)}.navlinks a{font:9px var(--sans);letter-spacing:.12em;color:#b8bac5}.navlinks a:hover,.social a:hover{color:var(--blue)}
+    .hero{min-height:min(780px,calc(100svh - 64px));padding:30px clamp(20px,7vw,100px);display:flex;flex-direction:column;justify-content:space-between;position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(180deg,#101725 0%,#0c111d 48%,#080a10 100%)}.hero:before{content:"";position:absolute;z-index:-1;width:min(58vw,540px);aspect-ratio:1;right:4%;top:7%;border-radius:50%;background:radial-gradient(circle at 32% 28%,#a0acc1 0%,#667c9e 9%,#344663 30%,#19283f 53%,#101725 68%,transparent 70%);opacity:.82;filter:saturate(.72)}.hero:after{content:"";position:absolute;z-index:-1;width:min(65vw,610px);aspect-ratio:1;right:1%;top:5%;border:1px solid #9caed326;border-radius:50%;transform:scaleY(.42) rotate(-24deg)}.hero-title{font-size:clamp(58px,13.5vw,150px);line-height:.78;letter-spacing:-.085em;font-weight:400;margin:52px 0 26px}.hero-title em{display:block;margin:24px 0 0 14%;font-size:.68em;letter-spacing:-.06em;color:var(--blue);font-weight:400}.hero-copy{font:13px/1.9 var(--sans);color:#b5b8c5;max-width:350px}.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 16px;border:1px solid #7885a3;background:transparent;color:var(--ink);font:9px var(--sans);letter-spacing:.14em;text-transform:uppercase;transition:background .2s,color .2s}.btn:hover{background:#252e42}.btn.primary{background:#e0e3eb;color:#111522;border-color:#e0e3eb}.btn.primary:hover{background:#b7c3dc}.hero-bottom{display:flex;justify-content:space-between;gap:16px;margin-top:50px;color:#858da1}
+    .section{padding:clamp(48px,8vw,96px) clamp(20px,7vw,100px);border-top:1px solid var(--line);scroll-margin-top:64px}.kicker{color:var(--blue);margin-bottom:22px}.section h2{font-size:clamp(36px,7vw,76px);font-weight:400;line-height:1.01;letter-spacing:-.055em;margin:0 0 24px}.section h2 em{color:var(--blue);font-weight:400}.desc{font:13px/2 var(--sans);color:var(--muted);max-width:600px}.manifesto{margin-top:34px;padding:25px clamp(16px,4vw,34px);border-left:1px solid #8296c7;background:linear-gradient(100deg,#192339 0%,#0c1019 75%)}.manifesto blockquote{margin:12px 0 0;font-size:clamp(25px,5vw,43px);line-height:1.35;font-style:italic;color:#d8d9e1}
+    .filters{display:flex;flex-wrap:wrap;gap:8px;margin:25px 0 16px}.filter{border:1px solid #454b5b;background:transparent;padding:10px 12px;color:#aeb2c0;font:9px var(--sans);letter-spacing:.1em}.filter.active{background:#e0e3eb;color:#111522;border-color:#e0e3eb}
+    .gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.work{position:relative;min-height:230px;overflow:hidden;background:#111724;border:1px solid #ffffff16;display:flex;flex-direction:column;justify-content:space-between;padding:14px;isolation:isolate}.work.wide{grid-column:1/-1;min-height:300px}.art{position:absolute;inset:0;z-index:-1;transition:transform .6s}.work:hover .art{transform:scale(1.045)}.art:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#05070ce8 0%,transparent 66%)}.art-film{background:radial-gradient(ellipse at 60% 37%,#8190a5 0%,#40516c 19%,#1e2b42 44%,#101622 75%)}.art-style{background:linear-gradient(145deg,#171a25,#373a4b 48%,#10131b)}.art-style:before{content:"";position:absolute;left:38%;top:13%;width:34%;height:76%;background:linear-gradient(90deg,#11141d,#4b4c5b,#181a23);transform:rotate(9deg);filter:blur(7px)}.art-night{background:radial-gradient(ellipse at 55% 95%,#59445f 0%,#26233a 28%,#111421 68%)}.art-blue{background:radial-gradient(ellipse at 35% 30%,#61799a 0%,#2b405b 25%,#111827 70%)}.work-no{font:9px var(--sans);letter-spacing:.15em;color:#d4d6df}.work-title{font-size:clamp(19px,3vw,30px);line-height:1.15}.work.hidden{display:none}.note{font:9px/1.7 var(--sans);letter-spacing:.1em;color:#777f93;margin-top:15px}
+    .facts{margin-top:28px}.fact{display:flex;justify-content:space-between;gap:20px;padding:15px 0;border-top:1px solid var(--line);font:11px var(--sans);color:#b8bac5}.fact span:last-child{text-align:right;color:#91a2cb}
+    .track{display:flex;align-items:center;gap:14px;border-top:1px solid var(--line);padding:17px 0;margin-top:24px}.cover{width:54px;height:54px;flex-shrink:0;display:grid;place-items:center;background:radial-gradient(circle at 32% 28%,#8797b4,#34425b 45%,#10131b 78%);font-size:22px}.track-title{font-size:17px}.track-sub{font:9px var(--sans);letter-spacing:.1em;color:#9298a8;margin-top:7px}.play{margin-left:auto;border:1px solid #59637a;background:transparent;border-radius:50%;width:39px;height:39px;font:12px var(--sans)}.progress{height:2px;background:#303645;margin-top:14px}.progress span{display:block;width:0;height:2px;background:#a8b9df;transition:width .35s}.status{font:9px var(--sans);letter-spacing:.12em;color:#9eafd6;margin-top:12px;min-height:12px}
+    .contact{background:radial-gradient(ellipse at 100% 100%,#1c2a45 0%,#080a10 65%)}.footer{padding:30px clamp(20px,7vw,100px) 36px;background:#050609}.footer-mark{font-size:48px;letter-spacing:-.08em;color:var(--blue)}.social{display:flex;gap:20px;flex-wrap:wrap;margin-top:20px;font:9px var(--sans);letter-spacing:.12em;color:#b4b7c4}.footer-bottom{border-top:1px solid var(--line);margin-top:25px;padding-top:16px;display:flex;justify-content:space-between;gap:14px;color:#697186}
+    @media(min-width:760px){.gallery{grid-template-columns:repeat(3,minmax(0,1fr))}.work{min-height:290px}.work.wide{grid-column:span 2;min-height:350px}.hero{min-height:700px}.hero-title{margin-top:80px}}
+    @media(max-width:420px){.navlinks{gap:9px}.navlinks a{font-size:8px}.brand{font-size:10px}.hero-bottom{font-size:8px}.work{min-height:180px;padding:11px}.work.wide{min-height:220px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+  </style>
+</head>
+<body>
+  <nav class="nav" aria-label="Main navigation">
+    <a class="brand" href="#home">CORVANE®</a>
+    <div class="navlinks"><a href="#about">ABOUT</a><a href="#archive">ARCHIVE</a><a href="#sound">SOUND</a></div>
+  </nav>
+  <main>
+    <header class="hero" id="home">
+      <div class="mono muted">PERSONAL ARCHIVE — NO. 001</div>
+      <div>
+        <div class="mono" style="color:#a4b4d9">A STUDY IN SOLITUDE</div>
+        <h1 class="hero-title">CORVANE<em>after dark.</em></h1>
+        <p class="hero-copy">Vintage silhouettes. Unspoken feelings. Photographs from places that never really leave you.</p>
+        <div class="actions"><a class="btn primary" href="#archive">EXPLORE THE ARCHIVE ↘</a><a class="btn" href="https://www.instagram.com/corvane.wav/" target="_blank" rel="noopener noreferrer">INSTAGRAM ↗</a></div>
+      </div>
+      <div class="hero-bottom mono"><span>HONG KONG / INDONESIA</span><span>EST. IN MY OWN WORLD</span></div>
+    </header>
+    <section class="section" id="about">
+      <div class="mono kicker">01 — THE IDENTITY</div>
+      <h2>Quiet by nature.<br><em>Unseen by design.</em></h2>
+      <p class="desc">CORVANE is an ongoing study of personal style and visual memory. Inspired by vintage American streetwear, the imperfection of film, the colours of the deep sea, and the sound of R&amp;B after midnight.</p>
+      <p class="desc">Not a life fully explained. Just fragments worth keeping.</p>
+      <div class="manifesto"><div class="mono kicker" style="margin:0">PERSONAL MANIFESTO</div><blockquote>“Somewhere between the person I am and the person I never show.”</blockquote></div>
+    </section>
+    <section class="section" id="archive">
+      <div class="mono kicker">02 — THE ARCHIVE</div>
+      <h2>Collected<br><em>in fragments.</em></h2>
+      <p class="desc">A visual diary of film, personal style, and late-night atmospheres. The artwork below is a replaceable CSS placeholder; add your own images when you're ready.</p>
+      <div class="filters" role="group" aria-label="Filter gallery">
+        <button class="filter active" data-filter="all" aria-pressed="true">ALL FRAGMENTS</button>
+        <button class="filter" data-filter="film" aria-pressed="false">FILM / CCD</button>
+        <button class="filter" data-filter="style" aria-pressed="false">STYLE</button>
+        <button class="filter" data-filter="mood" aria-pressed="false">MOOD</button>
+      </div>
+      <div class="gallery">
+        <a class="work wide" data-kind="film" href="https://www.instagram.com/corvane.wav/" target="_blank" rel="noopener noreferrer" aria-label="Japan film photography, opens Instagram"><div class="art art-film"></div><span class="work-no">ARCHIVE 001 / JAPAN</span><span class="work-title">A memory<br>in blue.</span></a>
+        <a class="work" data-kind="style" href="https://www.instagram.com/corvane.wav/" target="_blank" rel="noopener noreferrer" aria-label="Vintage streetwear, opens Instagram"><div class="art art-style"></div><span class="work-no">ARCHIVE 002</span><span class="work-title">The uniform.</span></a>
+        <a class="work" data-kind="mood" href="https://www.instagram.com/corvane.wav/" target="_blank" rel="noopener noreferrer" aria-label="Night mood, opens Instagram"><div class="art art-night"></div><span class="work-no">ARCHIVE 003</span><span class="work-title">Nocturne.</span></a>
+        <a class="work wide" data-kind="style" href="https://www.instagram.com/corvane.wav/" target="_blank" rel="noopener noreferrer" aria-label="Fashion editorial, opens Instagram"><div class="art art-blue"></div><span class="work-no">ARCHIVE 004 / EDITORIAL</span><span class="work-title">Nothing to prove.</span></a>
+      </div>
+      <p class="note">CONCEPTUAL PREVIEW · PLACEHOLDER ARTWORK · SELECT A TILE TO VISIT INSTAGRAM</p>
+    </section>
+    <section class="section" id="sound">
+      <div class="mono kicker">03 — FREQUENCIES</div>
+      <h2>Soundtrack for<br>the <em>unspoken.</em></h2>
+      <p class="desc">R&amp;B for empty streets, blurred lights, and thoughts that arrive too late.</p>
+      <div class="track"><div class="cover" aria-hidden="true">♫</div><div><div class="track-title">After Hours</div><div class="track-sub">THE CORVANE MOOD · PLAYLIST CONCEPT</div></div><button class="play" id="moodButton" aria-label="Toggle mood indicator" aria-pressed="false">▶</button></div>
+      <div class="progress"><span id="progressBar"></span></div><div class="status" id="moodStatus" aria-live="polite">SELECT TO REVEAL THE MOOD</div>
+      <p class="note" style="letter-spacing:.03em">This is a visual mood indicator, not an audio player. Replace this section with your preferred song or playlist link when ready.</p>
+    </section>
+    <section class="section">
+      <div class="mono kicker">04 — PERSONAL DETAILS</div>
+      <h2>The things<br>that <em>remain.</em></h2>
+      <div class="facts">
+        <div class="fact"><span>VISUAL LANGUAGE</span><span>DEEP BLUE / FILM GRAIN</span></div>
+        <div class="fact"><span>PERSONAL STYLE</span><span>VINTAGE / AMERICAN</span></div>
+        <div class="fact"><span>ON REPEAT</span><span>ALTERNATIVE R&amp;B</span></div>
+        <div class="fact"><span>IN THE FRAME</span><span>JAPAN / CITY NIGHTS</span></div>
+        <div class="fact"><span>THE SYMBOL</span><span>THE CROW</span></div>
+      </div>
+      <div class="manifesto"><blockquote>“Don’t chase the light.<br>Become the afterimage.”</blockquote></div>
+    </section>
+    <section class="section contact" id="contact">
+      <div class="mono kicker">05 — CONNECT</div>
+      <h2>Enter my<br><em>world.</em></h2>
+      <p class="desc">The archive continues elsewhere. Follow the photographs, the fits, and everything between them.</p>
+      <div class="actions"><a class="btn primary" href="https://www.instagram.com/corvane.wav/" target="_blank" rel="noopener noreferrer">FOLLOW @CORVANE.WAV ↗</a><button class="btn" id="copyBrand">COPY BRAND NAME</button></div>
+      <div class="status" id="copyStatus" aria-live="polite"></div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="footer-mark">C.</div>
+    <p class="desc" style="font-size:11px">A personal archive of things left unsaid.</p>
+    <div class="social"><a href="#home">BACK TO TOP ↑</a><a href="https://www.instagram.com/corvane.wav/" target="_blank" rel="noopener noreferrer">INSTAGRAM ↗</a></div>
+    <div class="footer-bottom mono"><span>© CORVANE 2026</span><span>MADE OF NIGHT &amp; MEMORY</span></div>
+  </footer>
+  <script>
+    (() => {
+      const filters = document.querySelectorAll('.filter');
+      const works = document.querySelectorAll('.work');
+      filters.forEach(button => button.addEventListener('click', () => {
+        filters.forEach(item => {
+          const active = item === button;
+          item.classList.toggle('active', active);
+          item.setAttribute('aria-pressed', String(active));
+        });
+        works.forEach(work => {
+          work.hidden = button.dataset.filter !== 'all' && work.dataset.kind !== button.dataset.filter;
+          work.classList.toggle('hidden', work.hidden);
+        });
+      }));
+      const moodButton = document.getElementById('moodButton');
+      const moodStatus = document.getElementById('moodStatus');
+      const progress = document.getElementById('progressBar');
+      moodButton.addEventListener('click', () => {
+        const active = moodButton.getAttribute('aria-pressed') !== 'true';
+        moodButton.setAttribute('aria-pressed', String(active));
+        moodButton.textContent = active ? 'Ⅱ' : '▶';
+        moodStatus.textContent = active ? 'MOOD SELECTED · LATE-NIGHT R&B' : 'SELECT TO REVEAL THE MOOD';
+        progress.style.width = active ? '68%' : '0';
+      });
+      document.getElementById('copyBrand').addEventListener('click', async () => {
+        const status = document.getElementById('copyStatus');
+        try {
+          await navigator.clipboard.writeText('CORVANE');
+          status.textContent = 'COPIED: CORVANE';
+        } catch (error) {
+          status.textContent = 'YOUR BRAND NAME: CORVANE';
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
